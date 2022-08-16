@@ -1,0 +1,23 @@
+server:
+  port: 8080
+---
+spring:
+  cloud:
+    gateway:
+      default-filters:
+        - name: GlobalFilter
+          args:
+            baseMessage: Spring Cloud Gateway GlobalFilter
+            preLogger: true
+            postLogger: true
+      routes:
+        - id: member-svc
+          uri: http://localhost:8081/
+          predicates:
+            - Path=/member/**
+          filters:
+            - name: MemberFilter
+              args:
+                baseMessage: Spring Cloud Gateway MemberFilter
+                preLogger: true
+                postLogger: true

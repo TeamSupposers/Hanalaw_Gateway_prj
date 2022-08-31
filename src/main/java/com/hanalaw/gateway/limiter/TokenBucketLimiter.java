@@ -12,7 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class TokenBucketLimiter {
 
-	private static final Integer MAX_BUCKET_SIZE_PER_MIN = 100;
+	private static final Integer MAX_BUCKET_SIZE_PER_MIN = 50;
 	private static Integer bucket = MAX_BUCKET_SIZE_PER_MIN; // 최초 버켓 100으로 시작
 
 	static {

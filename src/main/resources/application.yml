@@ -12,7 +12,7 @@ spring:
             postLogger: true
       routes:
         - id: member-svc
-          uri: http://localhost:8082
+          uri: http://146.56.181.80:8082
           predicates:
             - Path=/hanaMbr/**
           filters:
@@ -21,3 +21,16 @@ spring:
                 baseMessage: Spring Cloud Gateway MemberFilter
                 preLogger: true
                 postLogger: true
+    config:
+      server:
+        db:
+          database: 
+          username: hanalaw
+          password: hanalaw123!@
+          host: 211.34.105.120
+          dialect:
+          pool:
+            max: 5
+            min: 1
+            acquire: 10000
+            idle: 10000

@@ -1,5 +1,10 @@
 server:
-  port: 8080
+  port: 8081
+  servlet:
+    encoding:
+      charset: UTF-8
+      force: true
+      enabled: true
 ---
 spring:
   cloud:
@@ -12,9 +17,9 @@ spring:
             postLogger: true
       routes:
         - id: member-svc
-          uri: http://localhost:8081/
+          uri: ENC(Fg5FIO+7/ekgqVR0nJ9BSmTSSoO3sbPE++GW/+of26lP1LX4lcyuCQ==)
           predicates:
-            - Path=/member/**
+            - Path=/hanaMbr/**
           filters:
             - name: MemberFilter
               args:

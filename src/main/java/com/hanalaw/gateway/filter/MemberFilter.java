@@ -1,16 +1,17 @@
 package com.hanalaw.gateway.filter;
 
-import lombok.Data;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
 import org.springframework.stereotype.Component;
+
+import lombok.Data;
 import reactor.core.publisher.Mono;
 
 @Component
 public class MemberFilter extends AbstractGatewayFilterFactory<MemberFilter.Config> {
-	
+
 	private static final Logger logger = LogManager.getLogger(MemberFilter.class);
 
 	public MemberFilter() {

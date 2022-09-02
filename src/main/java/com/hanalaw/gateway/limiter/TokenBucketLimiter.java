@@ -13,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 public class TokenBucketLimiter {
 
 	private static final Integer MAX_BUCKET_SIZE_PER_MIN = 50;
-	private static Integer bucket = MAX_BUCKET_SIZE_PER_MIN; // ÃÖÃÊ ¹öÄÏ 100À¸·Î ½ÃÀÛ
+	private static Integer bucket = MAX_BUCKET_SIZE_PER_MIN; // ìµœì´ˆ ë²„ì¼“ 100ìœ¼ë¡œ ì‹œì‘
 
 	static {
 		new Timer().scheduleAtFixedRate(new TimerTask() {
@@ -21,11 +21,11 @@ public class TokenBucketLimiter {
 			public void run() {
 				increase();
 			}
-		}, 1 * 60 * 1000, 1 * 60 * 1000); // 1ºĞ¿¡ 100°³ ¸®ÇÊ, Ã³À½ Å¸ÀÌ¸Ó ½ÃÀÛ ÈÄ 60ÃÊ ÀÌÈÄ¿¡ Å¸ÀÌ¸Ó ½ÃÀÛ.
+		}, 1 * 60 * 1000, 1 * 60 * 1000); // 1ë¶„ì— 100ê°œ ë¦¬í•„, ì²˜ìŒ íƒ€ì´ë¨¸ ì‹œì‘ í›„ 60ì´ˆ ì´í›„ì— íƒ€ì´ë¨¸ ì‹œì‘.
 	}
 
 	public synchronized static void increase() {
-		bucket = MAX_BUCKET_SIZE_PER_MIN; // ¹öÄÏ ¸®ÇÊ
+		bucket = MAX_BUCKET_SIZE_PER_MIN; // ë²„ì¼“ ë¦¬í•„
 		log.info("Reset the bucket size to {}", bucket);
 	}
 

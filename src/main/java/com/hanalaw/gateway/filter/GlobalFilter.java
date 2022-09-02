@@ -28,7 +28,7 @@ public class GlobalFilter extends AbstractGatewayFilterFactory<GlobalFilter.Conf
 	public GatewayFilter apply(Config config) {
 		return ((exchange, chain) -> {
 			try {
-				TokenBucketLimiter.decrease(); // 버켓 decrease에 성공하는 경우 리퀘스트는 포워딩된다.
+				TokenBucketLimiter.decrease();
 				logger.info("Forwarding the request..");
 				logger.info("GlobalFilter baseMessage>>>>>>" + config.getBaseMessage());
 				if (config.isPreLogger()) {
